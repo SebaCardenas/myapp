@@ -57,4 +57,6 @@ gem "httparty"
 
 gem 'bootstrap'
 
+gem 'jquery-rails'
+
 gem 'awesome_print', require: 'ap'
