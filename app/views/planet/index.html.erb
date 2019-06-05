@@ -1,0 +1,56 @@
+<h2>STAR WARS API: PLANET SPECT</h2>
+<br>
+<br>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">RotationPeriod</th>
+      <th scope="col">OrbitalPeriod</th>
+      <th scope="col">Diameter</th>
+      <th scope="col">Climates</th>
+      <th scope="col">Gravity</th>
+      <th scope="col">Terrains</th>
+      <th scope="col">SurfaceWater</th>
+      <th scope="col">Population</th>
+      <th scope="col">Residents</th>
+      <th scope="col">Films</th>
+    </tr>
+  </thead>
+  <tbody>
+
+      <tr>
+      <td><%=@my_plan["name"]%></td>
+      <td><%=@my_plan["rotationPeriod"]%></td>
+      <td><%=@my_plan["orbitalPeriod"]%></td>
+      <td><%=@my_plan["diameter"]%></td>
+
+      <td><%@my_plan["climates"].each do |b|%>
+        <%=""+b+", "%>
+      <%end%></td>
+
+      <td><%=@my_plan["gravity"]%></td>
+
+      <td><%@my_plan["terrains"].each do |b|%>
+        <%=""+b+", "%>
+      <%end%></td>
+
+      <td><%=@my_plan["surfaceWater"]%></td>
+      <td><%=@my_plan["population"]%></td>
+
+      <td><%@my_plan["residentConnection"]["residents"].each do |b|%>
+      <%=link_to ""+b["name"]+", ",character_index_path(:f_id => b["id"])%>
+      <%end%></td>
+
+      <td><%@my_plan["filmConnection"]["films"].each do |b|%>
+        <%=link_to ""+b["title"]+", ",pelicula_index_path(:f_id => b["id"])%>
+      <%end%></td>
+      </tr>
+
+  </tbody>
+
+ </table>
+ <br>
+<br>
+ <h6><%= link_to "Back To Home",root_path%></h6>

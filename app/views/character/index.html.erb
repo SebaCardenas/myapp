@@ -1,0 +1,48 @@
+<h2>STAR WARS API: CHARACTER SPECT</h2>
+<br>
+<br>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Height</th>
+      <th scope="col">mass</th>
+      <th scope="col">HairColor</th>
+      <th scope="col">SkinColor</th>
+      <th scope="col">BithYear</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Homeworld</th>
+      <th scope="col">Films</th>
+      <th scope="col">Starships</th>
+    </tr>
+  </thead>
+  <tbody>
+
+      <tr>
+      <td><%=@my_char["name"]%></td>
+      <td><%=@my_char["height"]%></td>
+      <td><%=@my_char["mass"]%></td>
+      <td><%=@my_char["hairColor"]%></td>
+      <td><%=@my_char["skinColor"]%></td>
+      <td><%=@my_char["birthYear"]%></td>
+      <td><%=@my_char["gender"]%></td>
+
+      <td><%=link_to ""+@my_char["homeworld"]["name"]+" ",planet_index_path(:f_id => @my_char["homeworld"]["id"])%></td>
+      
+      <td><%@my_char["filmConnection"]["films"].each do |b|%>
+        <%=link_to ""+b["title"]+", ",pelicula_index_path(:f_id => b["id"])%>
+      <%end%></td>
+
+      <td><%@my_char["starshipConnection"]["starships"].each do |b|%>
+        <%=link_to ""+b["name"]+", ",nave_index_path(:f_id => b["id"])%>
+      <%end%></td>
+      
+      </tr>
+
+  </tbody>
+
+ </table>
+<br>
+<br>
+ <h6><%= link_to "Back To Home",root_path%></h6>

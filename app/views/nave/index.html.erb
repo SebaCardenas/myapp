@@ -1,0 +1,59 @@
+<h2>STAR WARS API: STARSHIP SPECT</h2>
+<br>
+<br>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Model</th>
+      <th scope="col">Manufacturers</th>
+      <th scope="col">CostInCredits</th>
+      <th scope="col">Length</th>
+      <th scope="col">MaxAtmospheringSpeed</th>
+      <th scope="col">Crew</th>
+      <th scope="col">Passengers</th>
+      <th scope="col">CargoCapacity</th>
+      <th scope="col">Consumables</th>
+      <th scope="col">HyperdriveRating</th>
+      <th scope="col">MGLT</th>
+      <th scope="col">StarshipClass</th>
+      <th scope="col">Pilots</th>
+      <th scope="col">Films</th>
+    </tr>
+  </thead>
+  <tbody>
+
+      <tr>
+      <td><%=@my_star["name"]%></td>
+      <td><%=@my_star["model"]%></td>
+
+      <td><%@my_star["manufacturers"].each do |b|%>
+        <%=""+b+", "%>
+      <%end%></td>
+
+      <td><%=@my_star["costInCredits"]%></td>
+      <td><%=@my_star["length"]%></td>
+      <td><%=@my_star["maxAtmospheringSpeed"]%></td>
+      <td><%=@my_star["crew"]%></td>
+      <td><%=@my_star["passengers"]%></td>
+      <td><%=@my_star["cargoCapacity"]%></td>
+      <td><%=@my_star["consumables"]%></td>
+      <td><%=@my_star["hyperdriveRating"]%></td>
+      <td><%=@my_star["MGLT"]%></td>
+      <td><%=@my_star["starshipClass"]%></td>
+
+      <td><%@my_star["pilotConnection"]["pilots"].each do |b|%>
+      <%=link_to ""+b["name"]+", ",character_index_path(:f_id => b["id"])%>
+      <%end%></td>
+
+      <td><%@my_star["filmConnection"]["films"].each do |b|%>
+        <%=link_to ""+b["title"]+", ",pelicula_index_path(:f_id => b["id"])%>
+      <%end%></td>
+      </tr>
+  </tbody>
+
+ </table>
+<br>
+<br>
+ <h6><%= link_to "Back To Home",root_path%></h6>

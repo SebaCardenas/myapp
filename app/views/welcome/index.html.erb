@@ -1,4 +1,33 @@
-<h2>Hello World</h2>
-<p>
-  The time is now: <%= Time.now %>
-</p>
+<h2>STAR WARS API</h2>
+<br>
+<br>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">ReleaseDate</th>
+      <th scope="col">EpisodeID</th>
+      <th scope="col">Director</th>
+      <th scope="col">Producers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@all_films_sort.each do |item|%>
+      <tr>
+      <td><%=item["title"]%></td>
+      <td><%=item["releaseDate"]%></td>
+      <td><%=item["episodeID"]%></td>
+      <td><%=item["director"]%></td>
+      <td><%item["producers"].each do |b|%>
+        <%=""+b+", "%>
+      <%end%></td>
+      <td><%= link_to "ver más.",pelicula_index_path(:f_id => item["id"])%></td>
+      </tr>
+    <%end%>
+  </tbody>
+ </table>
+<br>
+<br>
+
+      

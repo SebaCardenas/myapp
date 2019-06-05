@@ -4,25 +4,24 @@ module Funciones
     $url = "https://swapi-graphql-integracion-t3.herokuapp.com/"
     
     def self.get_all_films
-        $query = "{allFilms {
-                    edges {
-                        node {
+        $query = "{allFilms{
+                        films{
                             title
                             releaseDate
                             episodeID
                             director
                             producers
+                            id
                         }
                     }
-                }		
-            }"
+                }"
         response = HTTParty.get($url, query: {'query' => $query})
         results = response.parsed_response
         return results
     end
 
     def self.get_film_spects(id)
-        $query = "{film(filmID:"+id.to_s+"){
+        $query = "{film(id:\"#{id}\"){
                     title
                     episodeID
                     openingCrawl
@@ -54,7 +53,7 @@ module Funciones
         return results
     end
 
-    def self.get_person_spects(id)
+    def self.get_character_spects(id)
         $query = "{
             person(id:\"#{id}\"){
               name
