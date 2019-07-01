@@ -15,6 +15,7 @@
   <tbody>
     <%@all_films_sort.each do |item|%>
       <tr>
+      <%next if item == nil%>
       <td><%=item["title"]%></td>
       <td><%=item["releaseDate"]%></td>
       <td><%=item["episodeID"]%></td>
